@@ -8,16 +8,20 @@
  can pose questions related to coding or development practices
  and receive answers or guidance.
 
-## Getting Started
+ ## Getting Started
+
 Follow these instructions to set up and run the application locally.
 
-##Prerequisites
+ ##Prerequisites
+
 Make sure you have the following installed:
 
 Python 3.8 or higher
 MySQL server
 Git
-##Installation
+ 
+ ##Installation
+
 Clone the repository:
 
 bash
@@ -36,7 +40,9 @@ Install the required packages:
 bash
 Copy code
 pip install -r requirements.txt
+
 ##Database Setup
+
 Start the MySQL server if it’s not already running.
 
 Create the database for the application. Open MySQL from the command line:
@@ -76,7 +82,10 @@ Copy code
 flask run
 The application should now be running at http://127.0.0.1:5000.
 
-Additional Notes
-Environment Variables: Consider using a .env file to store sensitive information like database credentials, and use python-dotenv to load them automatically.
+# #Additional Notes
+
+Environment Variables: Consider using a .env file to store sensitive
+information like database credentials, and use python-dotenv to load 
+them automatically.
 
 Debugging: For development, you can set FLASK_ENV=development in your environment to enable debugging features.
