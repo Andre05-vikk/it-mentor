@@ -12,7 +12,7 @@
 
 Follow these instructions to set up and run the application locally.
 
- ##Prerequisites
+##Prerequisites
 
 Make sure you have the following installed:
 
