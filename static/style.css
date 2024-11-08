@@ -1,8 +1,21 @@
+/* Üldised kehad */
 body {
     font-family: Arial, sans-serif;
     text-align: center;
 }
 
+/* Pealkirjad */
+h1 {
+    color: #333;
+}
+
+/* Küsimuste loend */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+/* Navigeerimisriba stiil */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -38,6 +51,7 @@ body {
     cursor: pointer;
 }
 
+/* "Add Question" nupu stiil */
 #addQuestionBtn {
     margin-top: 30px;
     padding: 10px 20px;
@@ -45,6 +59,7 @@ body {
     cursor: pointer;
 }
 
+/* Modoaali stiil */
 .modal {
     position: fixed;
     top: 0;
@@ -67,11 +82,13 @@ body {
     position: relative;
 }
 
+/* Tekstiala konteiner */
 .textarea-container {
     position: relative;
     width: 100%;
 }
 
+/* Tekstiala stiil */
 textarea {
     width: 100%;
     height: 400px;
@@ -81,6 +98,7 @@ textarea {
     box-sizing: border-box;
 }
 
+/* Tähemärkide loenduri kast */
 .character-limit-box {
     position: absolute;
     bottom: 12px;
@@ -96,6 +114,7 @@ textarea {
     color: gray;
 }
 
+/* Saada nupp */
 button#sendBtn {
     position: absolute;
     bottom: 12px;
