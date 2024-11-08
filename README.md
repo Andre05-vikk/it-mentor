@@ -12,7 +12,7 @@
 
 Follow these instructions to set up and run the application locally.
 
-##Prerequisites
+## Prerequisites
 
 Make sure you have the following installed:
 
@@ -20,7 +20,7 @@ Python 3.8 or higher
 MySQL server
 Git
  
- ##Installation
+ ## Installation
 
 Clone the repository:
 
@@ -41,7 +41,7 @@ bash
 Copy code
 pip install -r requirements.txt
 
-##Database Setup
+## Database Setup
 
 Start the MySQL server if it’s not already running.
 
@@ -82,7 +82,7 @@ Copy code
 flask run
 The application should now be running at http://127.0.0.1:5000.
 
-# #Additional Notes
+## Additional Notes
 
 Environment Variables: Consider using a .env file to store sensitive
 information like database credentials, and use python-dotenv to load 
