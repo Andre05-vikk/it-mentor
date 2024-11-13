@@ -1,91 +1,96 @@
-# it-mentor
-## Description
+# IT Mentorship Platform
 
- This project is designed to help users evolve as developers
- by allowing them to ask questions.
+This project is a web application designed for IT mentorship, where users can ask questions, get answers, and engage with mentors. The application is built using Flask as the backend framework and MariaDB as the database.
 
- The main goal is to provide a platform where users
- can pose questions related to coding or development practices
- and receive answers or guidance.
+## Table of Contents
+- [Features](#features)
+- [Getting Started](#getting-started)
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Configuration](#configuration)
+- [Database Setup](#database-setup)
+- [Running the Application](#running-the-application)
+- [Project Structure](#project-structure)
+- [License](#license)
 
- ## Getting Started
+## Features
+- User registration and login
+- Users can post questions and receive answers
+- Database setup that supports scalability and normalization
+- Follows good database practices such as `AUTO_INCREMENT` primary keys, foreign key references, and normalized schema
 
-Follow these instructions to set up and run the application locally.
+## Getting Started
+These instructions will help you set up and run the project on your local machine.
 
-## Prerequisites
+### Prerequisites
+- Python 3.x
+- MariaDB or MySQL installed locally
+- Git for version control
 
-Make sure you have the following installed:
+### Installation
+1. **Set up a virtual environment** (optional but recommended):
+    ```bash
+    python -m venv venv
+    source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+    ```
 
-Python 3.8 or higher
-MySQL server
-Git
- 
- ## Installation
+2. **Install dependencies**:
+    ```bash
+    pip install -r requirements.txt
+    ```
 
-Clone the repository:
+### Configuration
+Update `config.py` with your database configuration. Here is an example configuration:
+    ```python
+    class Config:
+        SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:password@localhost/it_mentorship'
+        SQLALCHEMY_TRACK_MODIFICATIONS = False
+        SECRET_KEY = 'your_secret_key'
+    ```
+Replace `root` and `password` with your MariaDB/MySQL username and password.
 
-bash
-Copy code
-git clone https://github.com/yourusername/your-repo-name.git
-cd your-repo-name
-Create and activate a virtual environment:
+### Database Setup
+1. **Create the database**:
+   Open the MariaDB/MySQL CLI and create a new database:
+    ```sql
+    CREATE DATABASE it_mentorship;
+    USE it_mentorship;
+    ```
 
-bash
-Copy code
-python -m venv venv
-source venv/bin/activate  # On macOS/Linux
-venv\Scripts\activate     # On Windows
-Install the required packages:
+2. **Import database schema**:
+   If you have a `dump.sql` file for the database schema, load it as follows:
+    ```bash
+    mysql -u root -p it_mentorship < app/dump.sql
+    ```
+   Enter your MariaDB/MySQL password when prompted.
 
-bash
-Copy code
-pip install -r requirements.txt
+### Running the Application
+To start the application:
+    ```bash
+    flask run
+    ```
+By default, the application will run on http://127.0.0.1:5000.
 
-## Database Setup
-
-Start the MySQL server if it’s not already running.
-
-Create the database for the application. Open MySQL from the command line:
-
-bash
-Copy code
-mysql -u root -p
-Inside the MySQL shell, create a new database:
-
-sql
-Copy code
-CREATE DATABASE your_database_name;
-Load the database schema and data from the dump.sql file (if provided):
-
-bash
-Copy code
-mysql -u root -p your_database_name < dump.sql
-Configure database settings:
-
-Update the database URI in config.py with your database credentials, for example:
-
-python
-Copy code
-SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:your_password@localhost/your_database_name'
-Running the Application
-Initialize the database tables (if needed):
-
-If there’s no dump.sql or if you need to create tables directly, run:
-
-bash
-Copy code
-python create_tables.py
-Run the application:
-
-bash
-Copy code
-flask run
-The application should now be running at http://127.0.0.1:5000.
-
-## Additional Notes
-
-Environment Variables: Consider using a .env file to store sensitive
-information like database credentials, and use python-dotenv to load 
-them automatically.
-
-Debugging: For development, you can set FLASK_ENV=development in your environment to enable debugging features.
+## Project Structure
+```graphql
+it-mentorship/
+├── app/
+│   ├── __init__.py             # Initializes the Flask application
+│   ├── api.py                  # API endpoints for managing questions and answers
+│   ├── config.py               # Configuration settings for the app
+│   ├── extensions.py           # Extensions like SQLAlchemy and Marshmallow
+│   ├── models.py               # Database models
+│   ├── schemas.py              # Schemas for serializing data
+│   ├── views.py                # Views and routes for the app
+│   ├── templates/              # HTML templates (index.html, question.html, etc.)
+│   └── dump.sql                # Database schema in SQL format
+├── instance/
+│   └── database.db             # SQLite database (if used as fallback)
+├── static/
+│   └── style.css               # CSS styles for the application
+├── venv/                       # Virtual environment (optional)
+├── .gitignore                  # Ignored files and folders
+├── app.py                      # Main application file
+├── create_tables.py            # Script for creating database tables
+├── README.md                   # Project documentation
+└── requirements.txt            # Python dependencies
