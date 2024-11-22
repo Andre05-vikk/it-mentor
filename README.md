@@ -40,7 +40,7 @@ These instructions will help you set up and run the project on your local machin
     ```
 
 ### Configuration
-Update `config.py` with your database configuration. Here is an example configuration:
+1. Update `config.py` with your database configuration. Here is an example configuration:
     ```python
     class Config:
         SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:password@localhost/it_mentorship'
